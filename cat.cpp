@@ -1,14 +1,16 @@
 #include "cat.h"
+#include "toy.h"
 
 #include <iostream>
 
-Cat::Cat() {
-    int age = 2;
-    int height = 5;
-    int weight = 10;
-    bool isSick = false;
-    bool asleep = false;
-    int meal = 10;
+Cat::Cat(Toy *toy) {
+    ball = toy;
+    age = 2;
+    height = 5;
+    weight = 10;
+    isSick = false;
+    asleep = false;
+    meal = 10;
 }
 
 void Cat::putToSleep() { 
@@ -17,12 +19,17 @@ void Cat::putToSleep() {
 
 void Cat::wake(){
     asleep= false;
-    meow();
+    //meow();
+    if(ball->ring()){
+        meow();
+        meow();
+    }
 }
 
 void Cat::meow() {
     age++; 
     std::cout << "MEOW" << std::endl;
+    //weight -= ball->play(1);
 }
 
 void Cat::eat(int mg) {
@@ -65,5 +72,9 @@ bool Cat::getSick(){
 }
 bool Cat::getSleep(){
     return asleep;
+}
+
+void Cat::setSick(){
+    isSick = true;
 }
 

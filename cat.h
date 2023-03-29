@@ -1,10 +1,13 @@
 #ifndef CAT_H
 #define CAT_H
 
+class Toy;
+
 class Cat {
 
 public:
-    Cat();
+    Toy* ball;
+    Cat(Toy *toy);
     void putToSleep();
     void wake();
     void meow();
@@ -16,8 +19,10 @@ public:
     int getWeight();
     bool getSick();
     bool getSleep();
+    void setSick();
 
 private:
+
     int age;
     int height;
     int weight;
